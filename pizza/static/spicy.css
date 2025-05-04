@@ -1,0 +1,86 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f8f8f8;
+  }
+  
+  .category-strip {
+    background-color: #fff;
+    padding: 1rem;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .scroll-menu {
+    display: flex;
+    overflow-x: auto;
+    gap: 0.5rem;
+  }
+  
+  .scroll-menu button {
+    padding: 0.5rem 1rem;
+    background: #f1f1f1;
+    border: none;
+    border-radius: 20px;
+    white-space: nowrap;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .scroll-menu button:hover {
+    background: #e0e0e0;
+  }
+  
+  .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+  
+  .pizza-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .pizza-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+  }
+  
+  .pizza-card h3 {
+    margin: 0.5rem 1rem 0 1rem;
+  }
+  
+  .pizza-card p {
+    margin: 0.5rem 1rem;
+    font-size: 0.9rem;
+    color: #555;
+  }
+  
+  .card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem;
+  }
+  
+  .card-footer span {
+    font-weight: bold;
+    color: #222;
+  }
+  
+  .card-footer button {
+    background: #e4002b;
+    color: white;
+    border: none;
+    padding: 0.4rem 1rem;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  

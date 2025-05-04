@@ -1,0 +1,112 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pizza Menu</title>
+  <link rel="stylesheet" href="{% static 'volcano.css' %}" />
+</head>
+<body>
+
+  <section class="category-strip">
+    <div class="scroll-menu">
+      <a href="/bigpizza"> 
+      <button>Big Big Pizza</button>
+    </a>
+    <a href="/cheeseburst"> 
+      <button>Cheese Burst Pizza</button>
+    </a>
+    <a href="/volcano"> 
+      <button>Cheese Volcano Pizza</button>
+    </a>
+    <a href="/vegpizza">  
+      <button>Veg Pizza</button>
+    </a>
+    <a href="/mania"> 
+      <button>Pizza Mania</button>
+    </a>
+    <a href="/regular"> 
+      <button>Regular Pizza</button>
+    </a>
+    <a href="/spicy"> 
+      <button>Spicy Pizza</button>
+    </a>
+    <a href="/double_brust">
+      <button>Double Burst Pizza</button>
+    </a>
+    <a href="/value_combo"> 
+      <button>value Combos</button>
+    </a>
+    <a href="/garlic_bread">  
+      <button>Garlic Breads & More</button>
+    </a>
+    </div>
+  </section>
+
+  <section class="menu-grid">
+    <div class="pizza-card">
+      <img src="{% static "p1.png" %}" alt="Cheese Volcano Beef pizza" />
+      <h3>Cheese Volcano Beef pizza</h3>
+      <div class="card-footer">
+        <span>₹329</span>
+        <a href="/order">
+          <button onclick="orderPizza('Cheese Volcano Beef pizza', 329, '{% static "p1.png" %}')">Add</button>
+      </a>
+      </div>
+    </div>
+
+    <div class="pizza-card">
+      <img src="{% static "p3.jpg" %}" alt="peppy paneer cheese volcano pizza" />
+      <h3>peppy paneer cheese volcano pizza</h3>
+      <div class="card-footer">
+        <span>₹338</span>
+        <a href="/order">
+          <button onclick="orderPizza('peppy paneer cheese volcano pizza', 338, '{% static "p3.jpg" %}')">Add</button>
+      </a>
+      </div>
+    </div>
+
+    <div class="pizza-card">
+      <img src="{% static "p2.jpg" %}" alt="Cheese Volcano pizza" />
+      <h3>Cheese Volcano pizza</h3>
+      <div class="card-footer">
+        <span>₹339</span>
+        <a href="/order">
+          <button onclick="orderPizza('Cheese Volcano pizza', 339, '{% static "p2.jpg" %}')">Add</button>
+      </a>
+      </div>
+    </div>
+
+    <div class="pizza-card">
+      <img src="{% static "p4.jpg" %}" alt="Corn & Cheese Volcano pizza" />
+      <h3>Corn & Cheese Volcano pizza</h3>
+      <div class="card-footer">
+        <span>₹307</span>
+        <a href="/order">
+          <button onclick="orderPizza('Corn & Cheese Volcano pizza', 307, '{% static "p4.jpg" %}')">Add</button>
+      </a>
+      </div>
+    </div>
+
+    <div class="pizza-card">
+      <img src="{% static "p5.jpg" %}" alt="Cheese Volcano Framhouse" />
+      <h3>Cheese Volcano Framhouse</h3>
+      <div class="card-footer">
+        <span>₹348</span>
+        <a href="/order">
+          <button onclick="orderPizza('Cheese Volcano Framhouse', 348, '{% static "p5.jpg" %}')">Add</button>
+      </a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function orderPizza(name, price, img) {
+      const pizza = { name, price, img };
+      localStorage.setItem("selectedPizza", JSON.stringify(pizza));
+      window.location.href = "order.html";
+    }
+  </script>
+
+</body>
+</html>

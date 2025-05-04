@@ -1,0 +1,93 @@
+body {
+  font-family: 'Times New Roman', Times, serif;
+  margin: 0;
+  background-color: #f1f4ef;
+}
+
+.location-bar {
+  background-color: #e7eae6;
+  padding: 1rem;
+  border-bottom: 1px solid #ccc;
+}
+
+.location-bar p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.detect {
+  margin-top: 0.5rem;
+  background-color: #174730;
+  color: white;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.detect button {
+  background-color: white;
+  color: #004AAD;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.order-type {
+  display: flex;
+  justify-content: space-around;
+  background: #f1f1f1;
+  padding: 1rem 0;
+}
+
+.order-type button {
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 1rem;
+  width: 30%;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.order-type .active {
+  background-color: #000;
+  color: white;
+}
+
+.cravings, .whats-new {
+  padding: 1rem;
+  background-color: #fff;
+  margin-top: 1rem;
+}
+
+.craving-list {
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  padding-top: 1rem;
+}
+
+.craving-item {
+  text-align: center;
+  min-width: 100px;
+}
+
+.craving-item img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+.new-items {
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  padding-top: 1rem;
+}
+
+.new-items img {
+  width: 300px;
+  height: 200px;
+  border-radius: 10px;
+}

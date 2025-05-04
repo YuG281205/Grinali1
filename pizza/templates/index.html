@@ -1,0 +1,181 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pizza's Menu</title>
+  <link rel="stylesheet" href="{% static 'index.css' %}" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+  
+      body {
+        font-family: 'Poppins', sans-serif;
+        background-color: #fff;
+      }
+  
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 30px;
+        background: #ff3c00;
+        color: white;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      }
+  
+      .navbar .brand {
+        font-size: 24px;
+        font-weight: bold;
+        letter-spacing: 1px;
+      }
+  
+      .navbar .location {
+        display: flex;
+        align-items: center;
+        font-size: 16px;
+      }
+  
+      .navbar .location i {
+        margin-right: 8px;
+      }
+  
+      .navbar .login {
+        display: flex;
+        align-items: center;
+        background: white;
+        color: #ff3c00;
+        padding: 8px 15px;
+        border-radius: 25px;
+        cursor: pointer;
+        font-weight: 500;
+        text-decoration: none;
+        transition: background 0.3s;
+      }
+  
+      .navbar .login i {
+        margin-right: 8px;
+      }
+  
+      .navbar .login:hover {
+        background: #ffe5dd;
+      }
+  
+      @media screen and (max-width: 600px) {
+        .navbar {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="location">
+        <i class="fas fa-map-marker-alt"></i>
+        <span>Add Location</span>
+      </div>
+  
+      <div class="brand">
+        Pizza's Menu
+      </div>
+  
+      <a href="/login" class="login">
+        <i class="fas fa-user-circle"></i>
+        Login
+      </a>
+    </nav>
+    
+  <section class="cravings">
+    <h2>What are you craving for?</h2>
+    <div class="craving-list">
+      <div class="craving-item">
+        <a href="/bigpizza"> 
+        <img src="{% static 'b6.png' %}" alt="Big Big Pizza" />
+        </a>
+        <h5>Big Big Pizza</h5>
+      </div>
+
+      <div class="craving-item">
+        <a href="/cheeseburst"> 
+        <img src="{% static 'cheese_burst.jpg' %}" alt="Cheese Burst Pizza" />
+        </a>
+        <h5>Cheese Burst Pizza</h5>
+      </div>
+
+      <div class="craving-item">
+        <a href="/volcano"> 
+        <img src="{% static 'volcano.jpg' %}" alt=" Cheese Volcano Pizza" />
+        </a>
+        <h5>Cheese Volcano Pizza</h5>
+      </div>
+
+      <div class="craving-item">
+        <a href="/vegpizza"> 
+        <img src="{% static 'v1.jpg' %}" alt="Veg Pizza" />
+        </a>
+        <h5>Veg Pizza</h5>
+      </div>
+
+      <div class="craving-item">
+        <a href="/mania"> 
+        <img src="{% static 'pizza_mania.jpg' %}" alt="Pizza Mania" />
+        </a>
+        <h5>Pizza Mania</h5>
+      </div>
+
+      <div class="craving-item">
+        <a href="/regular"> 
+        <img src="{% static 'regular_pizza.png' %}" alt="Regular Pizza" />
+        </a>
+        <h5>Regular Pizza</h5>
+      </div>
+
+      <div class="craving-item">
+        <a href="/spicy"> 
+        <img src="{% static 's3.jpg' %}" alt="Spicy Pizza" />
+        </a>
+        <h5>Spicy Pizza</h5>
+      </div>
+
+      <div class="craving-item">
+        <a href="/double_brust"> 
+        <img src="{% static 'double_brust.png' %}" alt="Double Burst Pizza" />
+        </a>
+        <h5>Double Burst Pizza</h5>
+      </div>
+
+      <div class="craving-item">
+        <a href="/value_combo"> 
+        <img src="{% static 'value_combo.jpg' %}" alt="value Combos" />
+      </a>
+        <h5>value Combos</h5>
+      </div>
+
+      <div class="craving-item">
+        <a href="/garlic_bread"> 
+        <img src="{% static 'garlic_bread.jpg' %}" alt="Garlic Bread & more" />
+      </a>
+        <h5>Garlic Bread & more</h5>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="whats-new">
+    <h2>What’s New</h2>
+    <div class="new-items">
+      <img src="{% static 'b6.png' %}" alt="Big Big Pizza Ad" />
+      <img src="{% static 'cheese_burst.jpg' %}" alt="Cheese Burst Ad" />
+      <img src="{% static 'volcano.jpg' %}" alt="Cheese Volcano Ad" />
+      <img src="{% static 'cheese_lover.png' %}" alt="Cheese Lover Pizza Ad" />
+    </div>
+  </section>
+
+</body>
+</html>

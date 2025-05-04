@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Payment Summary</title>
+  <link rel="stylesheet" href="{% static 'payment.css' %}" />
+  <script src="https://cdn.tailwindcss.com"></script>
+      <script async
+        src="https://pay.google.com/gp/p/js/pay.js"
+        onload="onGooglePayLoaded()"></script>
+</head>
+
+    <body class="bg-gray-100 p-6">
+      <div class="max-w-xl mx-auto bg-white p-6 rounded-2xl shadow-lg">
+        <h2 class="text-2xl font-bold mb-4 text-center">Pay for Your Pizza</h2>
+    
+        <!-- Google Pay Button -->
+        <div id="gpay-button"></div>
+      </div>
+    
+      <script>
+        const paymentsClient = new google.payments.api.PaymentsClient({ environment: 'TEST' }); // Change to 'PRODUCTION' when ready
+    
+        function getGooglePayConfiguration() {
+          return {
+            apiVersion: 2,
+            apiVersionMinor: 0,
+            allowedPaymentMethods: [{
+              type: 'CARD',
+              parameters: {
+                allowedAuthMethods: ['PAN_ONLY', 'CRYPTOGRAM_3DS'],
+                allowedCardNetworks: ['MASTERCARD', 'VISA']
+              },
+              tokenizationSpecification: {
+                type: 'PAYMENT_GATEWAY',
+                parameters: {
+                  gateway: 'example', // Change to your payment gateway name (e.g., 'razorpay', 'payu', 'stripe')
+                  gatewayMerchantId: 'exampleMerchantId' // Replace with your actual merchant ID
+                }
+              }
+            }]
+          };
+        }
+    
+        function onGooglePayLoaded() {
+          paymentsClient.isReadyToPay(getGooglePayConfiguration())
+            .then(function(response) {
+              if (response.result) {
+                const button = paymentsClient.createButton({ onClick: onGooglePaymentButtonClicked });
+                document.getElementById('gpay-button').appendChild(button);
+              }
+            })
+            .catch(function(err) {
+              console.error(err);
+            });
+        }
+    
+        function onGooglePaymentButtonClicked() {
+          const paymentDataRequest = Object.assign({}, getGooglePayConfiguration());
+          paymentDataRequest.transactionInfo = {
+            totalPriceStatus: 'FINAL',
+            totalPrice: '150.00',
+            currencyCode: 'INR'
+          };
+          paymentDataRequest.merchantInfo = {
+            merchantName: 'My Pizza App'
+          };
+    
+          paymentsClient.loadPaymentData(paymentDataRequest)
+            .then(function(paymentData) {
+              console.log('Payment Success', paymentData);
+              alert('Payment successful! 🎉');
+            })
+            .catch(function(err) {
+              console.error('Payment failed', err);
+            });
+        }
+      </script>
+    </body>
+    </html>
+    

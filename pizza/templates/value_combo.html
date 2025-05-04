@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pizza Menu</title>
+  <link rel="stylesheet" href="{% static 'value_combo.css' %}" />
+</head>
+<body>
+
+  <section class="category-strip">
+    <div class="scroll-menu">
+      <a href="/bigpizza"> 
+      <button>Big Big Pizza</button>
+    </a>
+    <a href="/cheeseburst"> 
+      <button>Cheese Burst Pizza</button>
+    </a>
+    <a href="/volcano"> 
+      <button>Cheese Volcano Pizza</button>
+    </a>
+    <a href="/vegpizza">  
+      <button>Veg Pizza</button>
+    </a>
+    <a href="/mania"> 
+      <button>Pizza Mania</button>
+    </a>
+    <a href="/regular"> 
+      <button>Regular Pizza</button>
+    </a>
+    <a href="/spicy"> 
+      <button>Spicy Pizza</button>
+    </a>
+    <a href="/double_brust">
+      <button>Double Burst Pizza</button>
+    </a>
+    <a href="/value_combo"> 
+      <button>value Combos</button>
+    </a>
+    <a href="/garlic_bread">  
+      <button>Garlic Breads & More</button>
+    </a>
+    </div>
+  </section>
+
+  <section class="menu-grid">
+    <div class="pizza-card">
+      <img src="{% static "a1.jpg" %}" alt="Workfrom home treat" />
+      <h3>Workfrom home treat</h3>
+      <div class="card-footer">
+        <span>₹408</span>
+        <a href="/order">
+          <button onclick="orderPizza('Workfrom home treat', 408, '{% static "a1.jpg" %}')">Add</button>
+      </a>
+      </div>
+    </div>
+
+    <div class="pizza-card">
+      <img src="{% static "a2.jpg" %}" alt="Family House party" />
+      <h3>family House party</h3>
+      <div class="card-footer">
+        <span>₹499</span>
+        <a href="/order">
+          <button onclick="orderPizza('Family House party',499, '{% static "a2.jpg" %}')">Add</button>
+      </a>
+      </div>
+    </div>
+
+    <div class="pizza-card">
+      <img src="{% static "a3.jpg" %}" alt="Farmhouse + Cock" />
+      <h3>Farmhouse + Cock</h3>
+      <div class="card-footer">
+        <span>₹399</span>
+        <a href="/order">
+          <button onclick="orderPizza('Farmhouse + Cock', 399, '{% static "a3.jpg" %}')">Add</button>
+      </a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function orderPizza(name, price, img) {
+      const pizza = { name, price, img };
+      localStorage.setItem("selectedPizza", JSON.stringify(pizza));
+      window.location.href = "order.html";
+    }
+  </script>
+
+</body>
+</html>

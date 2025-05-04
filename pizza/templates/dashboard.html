@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pizza Dashboard</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right,rgb(58, 56, 56), #dd2476);
+      color: white;
+      text-align: center;
+      padding: 50px;
+    }
+    .container {
+      background: rgba(0, 0, 0, 0.4);
+      padding: 40px;
+      border-radius: 15px;
+      display: inline-block;
+    }
+    h1 {
+      font-size: 40px;
+    }
+    .btn {
+      display: inline-block;
+      margin: 20px 10px;
+      padding: 15px 30px;
+      background-color: white;
+      color: #f12711;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+    .btn:hover {
+      background-color: #fcd5b5;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome, {{ request.user.username }}!</h1>
+    <p>You're now logged in to the Pizza Dashboard 🍕</p>
+    <a href="/" class="btn">View Pizza Menu</a>
+    <a href="/logout" class="btn">Logout</a>
+  </div>
+</body>
+</html>

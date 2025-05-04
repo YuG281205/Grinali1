@@ -1,0 +1,145 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pizza Menu</title>
+  <link rel="stylesheet" href="{% static 'garlic_bread.css' %}" />
+</head>
+<body>
+
+  <section class="category-strip">
+    <div class="scroll-menu">
+      <a href="/bigpizza"> 
+      <button>Big Big Pizza</button>
+    </a>
+    <a href="/cheeseburst"> 
+      <button>Cheese Burst Pizza</button>
+    </a>
+    <a href="/volcano"> 
+      <button>Cheese Volcano Pizza</button>
+    </a>
+    <a href="/vegpizza">  
+      <button>Veg Pizza</button>
+    </a>
+    <a href="/mania"> 
+      <button>Pizza Mania</button>
+    </a>
+    <a href="/regular"> 
+      <button>Regular Pizza</button>
+    </a>
+    <a href="/spicy"> 
+      <button>Spicy Pizza</button>
+    </a>
+    <a href="/double_brust">
+      <button>Double Burst Pizza</button>
+    </a>
+    <a href="/value_combo"> 
+      <button>value Combos</button>
+    </a>
+    <a href="/garlic_bread">  
+      <button>Garlic Breads & More</button>
+    </a>
+    </div>
+  </section>
+
+  <section class="menu-grid">
+    <div class="pizza-card">
+      <img src="{% static "G2.jpg" %}" alt="Classic Suffed Garlic Breads" />
+      <h3>Classic Suffed Garlic Breads</h3>
+      <div class="card-footer">
+        <span>₹298</span>
+        <a href="/order">
+          <button onclick="orderPizza('Classic Suffed Garlic Breads', 298, '{% static "G2.jpg" %}')">Add</button>
+      </a>
+      </div>
+    </div>
+
+    <div class="pizza-card">
+      <img src="{% static "g3.jpg" %}" alt="Korean Corn & jalapeno Garlic Breads" />
+      <h3>Korean Corn & jalapeno Garlic Breads</h3>
+      <div class="card-footer">
+        <span>₹308</span>
+        <a href="/order">
+          <button onclick="orderPizza('Korean Corn & jalapeno Garlic Breads', 308, '{% static "g3.jpg" %}')">Add</button>
+      </a>
+      </div>
+    </div>
+
+    <div class="pizza-card">
+      <img src="{% static "G4.png" %}" alt="Paneer Tikka Suffed Garlic Bread" />
+      <h3>Paneer Tikka Suffed Garlic Bread</h3>
+      <div class="card-footer">
+        <span>₹279</span>
+        <a href="/order">
+          <button onclick="orderPizza('Paneer Tikka Suffed Garlic Bread', 259, '{% static "G4.png" %}')">Add</button>
+      </a>
+      </div>
+    </div>
+
+    <div class="pizza-card">
+      <img src="{% static "g5.jpg" %}" alt="Makhni Paneer Tikka Garlic Bread" />
+      <h3>Makhni Paneer Tikka Garlic Bread</h3>
+      <div class="card-footer">
+        <span>₹309</span>
+        <a href="/order">
+          <button onclick="orderPizza('Makhni Paneer Tikka Garlic Bread', 309, '{% static "g5.jpg" %}')">Add</button>
+      </a>
+      </div>
+    </div>
+
+    <div class="pizza-card">
+      <img src="{% static "G6.jpg" %}" alt="Garlic Breadsticks" />
+      <h3>Garlic Breadsticks</h3>
+      <div class="card-footer">
+        <span>₹198</span>
+        <a href="/order">
+          <button onclick="orderPizza('Garlic Breadsticks', 198, '{% static "G6.jpg" %}')">Add</button>
+      </a>
+      </div>
+    </div>
+
+    <div class="pizza-card">
+      <img src="{% static "G7.jpg" %}" alt="Taco Mexicana Veg" />
+      <h3>Taco Mexicana Veg</h3>
+      <div class="card-footer">
+        <span>₹359</span>
+        <a href="/order">
+          <button onclick="orderPizza('Taco Mexicana Veg', 359, '{% static "G7.jpg" %}')">Add</button>
+      </a>
+      </div>
+    </div>
+
+    <div class="pizza-card">
+      <img src="{% static "G8.jpg" %}" alt="Veg Parcel" />
+      <h3>Veg Parcel</h3>
+      <div class="card-footer">
+        <span>₹408</span>
+        <a href="/order">
+          <button onclick="orderPizza('Veg Parcel', 404, '{% static "G8.jpg" %}')">Add</button>
+      </a>
+      </div>
+    </div>
+
+    <div class="pizza-card">
+      <img src="{% static "g9.jpg" %}" alt="Burger Pizza" />
+      <h3>Burger Pizza</h3>
+      <div class="card-footer">
+        <span>₹299</span>
+        <a href="/order">
+          <button onclick="orderPizza('Burger Pizza', 299, '{% static "g9.jpg" %}')">Add</button>
+      </a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function orderPizza(name, price, img) {
+      const pizza = { name, price, img };
+      localStorage.setItem("selectedPizza", JSON.stringify(pizza));
+      window.location.href = "order.html";
+    }
+  </script>
+
+</body>
+</html>

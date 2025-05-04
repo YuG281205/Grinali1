@@ -1,0 +1,134 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pizza Menu</title>
+  <link rel="stylesheet" href="{% static 'vegpizza.css' %}" />
+</head>
+<body>
+
+  <section class="category-strip">
+    <div class="scroll-menu">
+      <a href="/bigpizza"> 
+      <button>Big Big Pizza</button>
+    </a>
+    <a href="/cheeseburst"> 
+      <button>Cheese Burst Pizza</button>
+    </a>
+    <a href="/volcano"> 
+      <button>Cheese Volcano Pizza</button>
+    </a>
+    <a href="/vegpizza">  
+      <button>Veg Pizza</button>
+    </a>
+    <a href="/mania"> 
+      <button>Pizza Mania</button>
+    </a>
+    <a href="/regular"> 
+      <button>Regular Pizza</button>
+    </a>
+    <a href="/spicy"> 
+      <button>Spicy Pizza</button>
+    </a>
+    <a href="/double_brust">
+      <button>Double Burst Pizza</button>
+    </a>
+    <a href="/value_combo"> 
+      <button>value Combos</button>
+    </a>
+    <a href="/garlic_bread">  
+      <button>Garlic Breads & More</button>
+    </a>
+    </div>
+  </section>
+
+  <section class="menu-grid">
+    <div class="pizza-card">
+      <img src="{% static "v1.jpg" %}" alt="Mix Veg Pizza" />
+      <h3>Mix Veg Pizza</h3>
+      <div class="card-footer">
+        <span>₹259</span>
+        <a href="/order">
+          <button onclick="orderPizza('Mix Veg Pizza', 259, '{% static "v1.jpg" %}')">Add</button>
+      </a>
+      </div>
+    </div>
+
+    <div class="pizza-card">
+      <img src="{% static "v2.jpg" %}" alt="Spicy Mexican pizza" />
+      <h3>Spicy Mexican pizza</h3>
+      <div class="card-footer">
+        <span>₹298</span>
+        <a href="/order">
+          <button onclick="orderPizza('Spicy Mexican pizza', 298, '{% static "v2.jpg" %}')">Add</button>
+      </a>
+      </div>
+    </div>
+
+    <div class="pizza-card">
+      <img src="{% static "v3.png" %}" alt="Paneer Pizza" />
+      <h3>Paneer Pizza</h3>
+      <div class="card-footer">
+        <span>₹339</span>
+        <a href="/order">
+          <button onclick="orderPizza('Paneer Pizza', 339, '{% static "v3.png" %}')">Add</button>
+      </a>
+      </div>
+    </div>
+
+    <div class="pizza-card">
+      <img src="{% static "v4.jpg" %}" alt="Shahi Paneer pizza" />
+      <h3>Shahi Paneer pizza</h3>
+      <div class="card-footer">
+        <span>₹349</span>
+        <a href="/order">
+          <button onclick="orderPizza('Shahi Paneer pizza', 349, '{% static "v4.jpg" %}')">Add</button>
+      </a>
+      </div>
+    </div>
+
+    <div class="pizza-card">
+      <img src="{% static "vs.jpg" %}" alt="Taco style pizza" />
+      <h3>Taco style pizza</h3>
+      <div class="card-footer">
+        <span>₹308</span>
+        <a href="/order">
+          <button onclick="orderPizza('Taco style pizza', 308, '{% static "vs.jpg" %}')">Add</button>
+       </a>
+      </div>
+    </div>
+
+    <div class="pizza-card">
+      <img src="{% static "v5.jpg" %}" alt="Pepperoni pizza" />
+      <h3>Pepperoni pizza</h3>
+      <div class="card-footer">
+        <span>₹299</span>
+        <a href="/order">
+          <button onclick="orderPizza('Pepperoni pizza', 299, '{% static "v5.jpg" %}')">Add</button>
+      </a>
+      </div>
+    </div>
+
+    <div class="pizza-card">
+      <img src="{% static "v6.jpg" %}" alt="Garden Veg pizza" />
+      <h3>Garden Veg pizza</h3>
+      <div class="card-footer">
+        <span>₹209</span>
+        <a href="/order">
+          <button onclick="orderPizza('Garden Veg pizza', 209, '{% static "v6.jpg" %}')">Add</button>
+      </a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function orderPizza(name, price, img) {
+      const pizza = { name, price, img };
+      localStorage.setItem("selectedPizza", JSON.stringify(pizza));
+      window.location.href = "order.html";
+    }
+  </script>
+
+</body>
+</html>
