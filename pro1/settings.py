@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure--3n((_$3@z3(2*6g(*@a-%*n0*-khjkb2su*48r4&9d%h+cd4j
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['grinali1-3.onrender.com']
+ALLOWED_HOSTS = ['grinali1-5.onrender.com']
 
 
 # Application definition
