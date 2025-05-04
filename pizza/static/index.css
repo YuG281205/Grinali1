@@ -2,6 +2,7 @@ body {
   font-family: 'Times New Roman', Times, serif;
   margin: 0;
   background-color: #f1f4ef;
+  overflow-x: hidden;
 }
 
 .location-bar {
@@ -68,14 +69,10 @@ body {
   padding-top: 1rem;
 }
 
-.craving-item {
-  text-align: center;
-  min-width: 100px;
-}
-
 .craving-item img {
-  width: 80px;
-  height: 80px;
+  width: 100%;
+  max-width: 80px;
+  height: auto;
   border-radius: 50%;
 }
 
@@ -87,7 +84,40 @@ body {
 }
 
 .new-items img {
-  width: 300px;
-  height: 200px;
-  border-radius: 10px;
+  width: 100%;
+  max-width: 300px;
+  height: auto;
 }
+
+.craving-item {
+  flex: 0 0 auto;
+  width: 100px;
+  text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+  .order-type {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .order-type button {
+    width: 100%;
+  }
+
+  .craving-item img {
+    max-width: 60px;
+  }
+
+  .new-items img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
+

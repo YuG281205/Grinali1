@@ -2,8 +2,9 @@ body {
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
     background-color: #f8f8f8;
+    overflow-x: hidden;
   }
-  
+   
   .category-strip {
     background-color: #fff;
     padding: 1rem;
