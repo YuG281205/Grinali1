@@ -125,10 +125,18 @@
 
   <script>
     function orderPizza(name, price, img) {
-      const pizza = { name, price, img };
-      localStorage.setItem("selectedPizza", JSON.stringify(pizza));
-      window.location.href = "order.html";
+      const newPizza = { name, price, img };
+    
+      let cart = JSON.parse(localStorage.getItem("pizzaCart")) || [];
+    
+      cart.push(newPizza);
+    
+      localStorage.setItem("pizzaCart", JSON.stringify(cart));
+    
+      alert(`${name} added to cart!`);
     }
+    
+    
   </script>
 
 </body>

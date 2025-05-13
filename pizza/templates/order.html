@@ -45,22 +45,73 @@
  
 
   <script>
-    const pizza = JSON.parse(localStorage.getItem("selectedPizza"));
-    if (pizza) {
-      const tax = Math.round(pizza.price * 0.18);
-      const delivery = 25;
-      const total = pizza.price + tax + delivery;
-
-      document.getElementById("pizzaName").textContent = pizza.name;
-      document.getElementById("pizzaImg").src = pizza.img;
-      document.getElementById("pizzaPrice").textContent = `₹${pizza.price}`;
-      document.getElementById("itemPrice").textContent = `₹${pizza.price}`;
-      document.getElementById("tax").textContent = `₹${tax}`;
-      document.getElementById("total").textContent = `₹${total}`;
-
-      
+    const cart = JSON.parse(localStorage.getItem("pizzaCart")) || [];
+  
+    const pizzaInfoContainer = document.querySelector(".pizza-info");
+    const itemPriceEl = document.getElementById("itemPrice");
+    const taxEl = document.getElementById("tax");
+    const totalEl = document.getElementById("total");
+  
+    let totalPrice = 0;
+  
+    pizzaInfoContainer.innerHTML = ""; // Clear existing
+  
+    cart.forEach(pizza => {
+      const pizzaDiv = document.createElement("div");
+      pizzaDiv.classList.add("pizza-info");
+      pizzaDiv.innerHTML = `
+        <img src="${pizza.img}" alt="${pizza.name}" style="width:80px; height:80px; object-fit:cover; margin-right:10px;">
+        <div>
+          <p class="title">${pizza.name}</p>
+          <p class="desc">Topped with herbs</p>
+          <p class="price">₹${pizza.price}</p>
+        </div>
+      `;
+      pizzaInfoContainer.appendChild(pizzaDiv);
+      totalPrice += pizza.price;
+    });
+  
+    const tax = Math.round(totalPrice * 0.18);
+    const delivery = 25;
+    const grandTotal = totalPrice + tax + delivery;
+  
+    itemPriceEl.textContent = `₹${totalPrice}`;
+    taxEl.textContent = `₹${tax}`;
+    totalEl.textContent = `₹${grandTotal}`;
+  
+    // Save order history when user places order
+    document.querySelector(".place-order-btn").addEventListener("click", function () {
+      let history = JSON.parse(localStorage.getItem("orderHistory")) || [];
+      history.push({ items: cart, total: grandTotal, date: new Date().toLocaleString() });
+      localStorage.setItem("orderHistory", JSON.stringify(history));
+  
+      alert("Order placed! ✔");
+  
+      // Optionally clear cart after order
+      localStorage.removeItem("pizzaCart");
+    });
+  
+    // 🧾 Show Order History
+    const history = JSON.parse(localStorage.getItem("orderHistory")) || [];
+    if (history.length > 0) {
+      const historyDiv = document.createElement("div");
+      historyDiv.innerHTML = "<h3>Previous Orders</h3>";
+      history.forEach((order, i) => {
+        const orderHTML = `
+          <div style="border:1px solid #ccc; margin:10px 0; padding:10px; border-radius:8px;">
+            <p><strong>Order #${i + 1}</strong> — <i>${order.date}</i></p>
+            <ul>
+              ${order.items.map(item => `<li>${item.name} — ₹${item.price}</li>`).join("")}
+            </ul>
+            <p><strong>Total Paid:</strong> ₹${order.total}</p>
+          </div>
+        `;
+        historyDiv.innerHTML += orderHTML;
+      });
+      document.body.appendChild(historyDiv);
     }
   </script>
+  
 </body>
 </html>
     
